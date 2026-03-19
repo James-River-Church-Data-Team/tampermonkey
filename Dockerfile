@@ -1,5 +1,6 @@
 FROM rclone/rclone
-WORKDIR /usr/local/app
+WORKDIR /usr/local/app/
+COPY rclone.conf /usr/local/app/
 
 EXPOSE ${PORT}
 
@@ -15,8 +16,8 @@ USER rcwds
 
 # Serve cwd over WebDAV with rclone
 CMD [ \
-    "config", "&&", \
     "serve", "webdav", \
+    "--config", "rclone.conf", \
     "remote:.", \
     "--read-only", \
     "--user", "$USER", \
