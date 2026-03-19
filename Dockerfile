@@ -23,5 +23,5 @@ CMD [ \
     "--read-only", \
     "--user", "$USER", \
     "--pass", "$PASS", \
-    "--addr", "0.0.0.0:$PORT" \
+    "--addr", "0.0.0.0:${PORT}" \
 ]
